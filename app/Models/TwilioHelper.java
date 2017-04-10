@@ -23,8 +23,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class TwilioHelper {
-    public static final String ACCOUNT_SID = "AC475c8331bc0843fed4f3671205a552af";
-    public static final String AUTH_TOKEN =  "06295825e918b5e59382dbdc84bae98c";
+    public static final String ACCOUNT_SID = "AC475..................................05a552af";
+    public static final String AUTH_TOKEN =  "062958.................................84bae98c";
 
     static{
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
