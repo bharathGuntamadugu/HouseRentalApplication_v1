@@ -1,0 +1,31 @@
+@import Models.Ad
+
+@import Models.ReceivedAd
+@(ads: List[ReceivedAd])
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>
+                Message
+                <span style="float: right">
+                    <a href="@routes.Application.app()"> <span class="glyphicon glyphicon-chevron-left"
+                    style="margin-left:20px; font-size:1.5em; color: #da2424"></span></a>
+                </span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(ad <- ads) {
+            <tr class="warning">
+                <td>@ad.date</td>
+                <td>@ad.name</td>
+                <td>@ad.number</td>
+                <td>@ad.messageBody</td>
+            </tr>
+        }
+    </tbody>
+</table>

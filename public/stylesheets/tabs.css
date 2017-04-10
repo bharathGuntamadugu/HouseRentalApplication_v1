@@ -1,0 +1,36 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 4%;
+}
+
+ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+ul.tabs li{
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: medium;
+}
+
+ul.tabs li.current{
+    background: #f8f8f8;
+    color: #222;
+    color:#da2424;
+    font-weight: 500;
+}
+
+.tab-content{
+    display: none;
+    background: #f8f8f8;
+    padding: 15px;
+}
+
+.tab-content.current{
+    display: inherit;
+}

@@ -1,0 +1,15 @@
+<Response>
+    <Say>
+        Please leave a message at the beep.
+        Press the star key when finished.
+    </Say>
+    <Record
+            action="http://3da526ec.ngrok.io/twiml/action"
+            method="POST"
+            maxLength="20"
+            finishOnKey="*"
+            recordingStatusCallback = "http://3da526ec.ngrok.io/twiml/recordStatusCallback"
+            recordingStatusCallbackMethod = "POST"
+    />
+    <Say>I did not receive a recording</Say>
+</Response>

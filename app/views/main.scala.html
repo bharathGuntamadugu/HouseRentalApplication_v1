@@ -1,0 +1,97 @@
+@(content: Html, myAds: Html, rentAProperty:Html, listAProperty:Html, logout: Html, userPane: Html, toast: String, isLogin: Boolean)
+
+<style>
+html, body,  {
+    height: auto;
+    margin: 0;
+}
+</style>
+
+<html>
+    <head>
+        <title>Twillo</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/tabs.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/toastr.css")"/>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("images/favicon.png")"/>
+        <script src="https://code.jquery.com/jquery-3.1.1.js" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/toastr.js")" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                var toast = "@toast";
+                if (toast != null && toast != "") {
+                    toastr.error(toast, "", {
+                        "positionClass": "toast-top-center",
+                        "timeOut": "2000",
+                    });
+                }
+                $('ul.tabs li').click(function(){
+                    var tab_id = $(this).attr('data-tab');
+
+                    $('ul.tabs li').removeClass('current');
+                    $('.tab-content').removeClass('current');
+
+                    $(this).addClass('current');
+                    $("#"+tab_id).addClass('current');
+                })
+            });
+        </script>
+    </head>
+    <body background = "/assets/images/owl.gif" style= "background-size: cover;">
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="@routes.Application.app()" style="text-decoration:none;"><img src="../assets/images/logo.png" class="navbar-brand" style="height:60px;
+                        padding:10px"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @logout
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        @if(!isLogin){
+            <div class="col-lg-3" style="text-align: center; border-width: thin ;border-right-style:solid; border-color: #122b40; font-size: larger; margin-bottom: 20px">
+            @userPane
+            </div>
+            <div class="col-lg-9" style="padding: 0% 2% 0% 2%">
+                @content
+                @if(!isLogin){
+                    <div class="container" >
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="tab-1">My Ads</li>
+                            <li class="tab-link" data-tab="tab-2">Rent a property</li>
+                            <li class="tab-link" data-tab="tab-3">List a property</li>
+                        </ul>
+
+                        <div id="tab-1" class="tab-content current" style="overflow:scroll;height: 370px">
+                        @myAds
+                        </div>
+                        <div id="tab-2" class="tab-content">
+                        @rentAProperty
+                        </div>
+                        <div id="tab-3" class="tab-content">
+                        @listAProperty
+                        </div>
+                    </div>
+                }
+            </div>
+        }else{
+            @content
+        }
+        </div>
+        <footer class="site-footer">
+            <hr style="height:1px;border:none;color:#333;background-color:#C0C0C0;padding:0;margin:0"/>
+            <p style="text-align: center;margin-top:10px"> © 2017. All Rights Reserved</p>
+
+            <p style="text-align:center;margin-top:-10px">Developed by: <a href="mailto:bharathraj@@tamu.edu">DreamHouse</a></p>
+        </footer>
+    </body>
+</html>

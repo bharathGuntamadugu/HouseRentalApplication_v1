@@ -1,0 +1,45 @@
+<style>
+.centerLogin{
+    width:20%;
+    height:350px;
+    background-color:9#f8f8f8;
+    margin: 0% auto;
+    margin-top:120px;
+    margin-bottom: 200px;
+}
+.loginButton {
+    background-color: #da2424;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width:100%;
+}
+</style>
+
+
+<div class = "centerLogin">
+    @*<div style="width:50%; margin: 0 auto; padding-top:0px;">*@
+        <form action= "@routes.Application.loginSubmit()" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control input-lg" name="username" id="usename" type="email" required="required">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control input-lg" name="password" id="password" type="password" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit" class="loginButton">Submit</button>
+            </div>
+            <div class="form-group">
+                <a href= "@routes.Application.signup()" method="get">Need an account?</a>
+            </div>
+        </form>
+    @*</div>*@
+</div>

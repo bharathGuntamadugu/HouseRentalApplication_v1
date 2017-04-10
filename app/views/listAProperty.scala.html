@@ -1,0 +1,55 @@
+<style>
+.button {
+    background-color: #da2424;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width:100%;
+}
+</style>
+
+<div style="padding:3%">
+    <form action="@routes.Application.listAPropertySubmit()" method="post">
+        <br>
+        <div class="form-group">
+            <label for="locationDropdown" class="col-lg-2">Location</label>
+            <div class="col-lg-10">
+                <select class="form-control input-default" name="locationDropdown" id="locationDropdown" type="text">
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="Mountain View">Mountain View</option>
+                    <option value="Sunnyvale">Sunnyvale</option>
+                    <option value="Santa Clara">Santa Clara</option>
+                </select>
+            </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+            <label for="minRent" class="col-lg-2">Rent</label>
+            <div class="col-lg-10">
+                <input class="form-control input-default" name="rent" id="rent" type="text" placeholder="Rent" required="required">
+            </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+            <label for="noOfBedroomsDropDown" class="col-lg-2">Bedrooms</label>
+            <div class="col-lg-10">
+                <select class="form-control input-default" name="noOfBedroomsDropDown" id="noOfBedroomsDropDown" type="text">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group" style="float: right; margin:2%">
+            <button type="submit" name="submit" class="button">Submit</button>
+        </div>
+        <br>
+    </form>
+</div>

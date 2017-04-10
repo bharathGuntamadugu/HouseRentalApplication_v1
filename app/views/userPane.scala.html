@@ -1,0 +1,16 @@
+@import Models.UserDetails
+@(user: UserDetails, imageSrc: String)
+<br><br><br><br>
+<div class="row">
+    <img src="@imageSrc" class="img-circle" style="height: 40%; padding-left: 4%">
+</div>
+<br><br><br>
+<div class="row">
+    <div style="font-size: large">@user.email</div>
+    <div style="font-size: large">@user.name</div>
+    <div style="font-size: large">@user.phone</div>
+</div>
+<br><br><br><br>
+
+
+

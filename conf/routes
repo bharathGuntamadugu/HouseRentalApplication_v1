@@ -1,0 +1,35 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /app                           controllers.Application.app
+GET     /                              controllers.Application.app
+GET     /login                         controllers.Application.login
+GET     /logout                        controllers.Application.logout
+GET     /signup                        controllers.Application.signup
+
+GET     /api/sms                       controllers.Api.sms(number:String)
+POST    /api/sms                       controllers.Api.smsTrigger
+GET     /api/recordTrigger             controllers.Api.recordTrigger()
+GET     /api/voice                     controllers.Api.voice(number:String)
+POST    /api/recordTrigger             controllers.Api.recordingEnd()
+
+POST    /loginSubmit                   controllers.Application.loginSubmit
+POST    /signupSubmit                  controllers.Application.signupSubmit()
+POST    /rentProperty                  controllers.Application.rentAPropertySubmit()
+POST    /listProperty                  controllers.Application.listAPropertySubmit()
+
+# Twiml Testing
+
+POST    /twiml/call                     controllers.Twiml.call()
+POST    /twiml/recordcallback           controllers.Twiml.recordCallback
+POST    /twiml/action                   controllers.Twiml.action
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+
+    

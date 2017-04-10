@@ -1,0 +1,40 @@
+@import Models.Ad
+
+@(ads: List[Ad])(color:String="Success")
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Listing Type</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Rent</th>
+            <th>Bedrooms</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(ad <- ads) {
+            @if(ad.rentAProperty) {
+                <tr class="Success">
+            }else {
+                <tr class="Info">
+            }
+                @if(ad.rentAProperty) {
+                    <td>Rent a Property</td>
+                } else{
+                    <td>List a Property</td>
+                }
+                <td>@ad.date</td>
+                <td>@ad.location</td>
+                @if(ad.rentAProperty) {
+                    <td>@ad.minRent-@ad.maxRent</td>
+                } else {
+                    <td>@ad.rent</td>
+                }
+                <td>@ad.bedrooms</td>
+                <td><a href="/api/sms?number=@ad.userDetails.phone"><span class="glyphicon glyphicon-comment"></span></a></td>
+                <td><a href="/api/voice?number=@ad.userDetails.phone"><span class="glyphicon glyphicon-earphone"></span></a></td>
+            </tr>
+        }
+    </tbody>
+</table>
